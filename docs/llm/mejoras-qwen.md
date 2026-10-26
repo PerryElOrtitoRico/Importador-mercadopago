@@ -24,3 +24,6 @@ Una entrada por pedido: qué se pidió, qué salió, por qué y qué se cambia e
 
 ## T04b — clasificar (qwen, --metodos)
 - Intento 1: 79 s, 2317 entrada, 875 salida, `stop`. Ocultos 3/3, firmas iguales. Sin cambios.
+
+## T05 — registro (qwen)
+- Intento 1: 95 s, 2211 entrada, 1008 salida, `stop`. Ocultos 4/4, firmas iguales. Sin cambios.
