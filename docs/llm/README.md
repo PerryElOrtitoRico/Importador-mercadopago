@@ -12,3 +12,4 @@ Claude (Opus) escribió la especificación (`00-especificacion.md`), los esquele
 |---|---|---|---|---|
 | T01 | Gemma | 3/3 | 0 | Gemma |
 | T02a | Gemma | 2/2 | 0 (1 línea del esqueleto restaurada a mano) | Gemma |
+| T03 | Gemma | 3/3 | 0 | Gemma |
