@@ -1,0 +1,11 @@
+Compiled from "Regla.java"
+public final class com.finanzas.model.Regla extends java.lang.Record {
+  private final java.lang.String contiene;
+  private final java.lang.String categoria;
+  public com.finanzas.model.Regla(java.lang.String, java.lang.String);
+  public final java.lang.String toString();
+  public final int hashCode();
+  public final boolean equals(java.lang.Object);
+  public java.lang.String contiene();
+  public java.lang.String categoria();
+}

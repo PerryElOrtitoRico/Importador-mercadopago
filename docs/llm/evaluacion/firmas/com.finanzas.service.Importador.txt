@@ -1,0 +1,7 @@
+Compiled from "Importador.java"
+public final class com.finanzas.service.Importador {
+  private com.finanzas.service.Importador();
+  public static java.util.List<java.lang.String> textoDePdf(java.nio.file.Path) throws java.io.IOException, java.lang.InterruptedException;
+  static java.lang.String nombreCsv(com.finanzas.model.Resumen);
+  public static com.finanzas.service.Importador$Resultado importar(java.util.List<java.lang.String>, java.util.List<com.finanzas.model.Regla>, com.finanzas.service.Registro, java.nio.file.Path, boolean) throws java.io.IOException;
+}

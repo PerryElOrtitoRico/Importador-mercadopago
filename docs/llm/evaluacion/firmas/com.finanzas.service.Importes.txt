@@ -1,0 +1,6 @@
+Compiled from "Importes.java"
+public final class com.finanzas.service.Importes {
+  private com.finanzas.service.Importes();
+  public static java.math.BigDecimal parsear(java.lang.String);
+  public static java.lang.String aCsv(java.math.BigDecimal);
+}

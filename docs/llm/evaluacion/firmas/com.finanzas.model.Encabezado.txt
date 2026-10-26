@@ -1,0 +1,19 @@
+Compiled from "Encabezado.java"
+public final class com.finanzas.model.Encabezado extends java.lang.Record {
+  private final java.lang.String titular;
+  private final java.lang.String periodo;
+  private final java.math.BigDecimal saldoInicial;
+  private final java.math.BigDecimal saldoFinal;
+  private final java.math.BigDecimal entradas;
+  private final java.math.BigDecimal salidas;
+  public com.finanzas.model.Encabezado(java.lang.String, java.lang.String, java.math.BigDecimal, java.math.BigDecimal, java.math.BigDecimal, java.math.BigDecimal);
+  public final java.lang.String toString();
+  public final int hashCode();
+  public final boolean equals(java.lang.Object);
+  public java.lang.String titular();
+  public java.lang.String periodo();
+  public java.math.BigDecimal saldoInicial();
+  public java.math.BigDecimal saldoFinal();
+  public java.math.BigDecimal entradas();
+  public java.math.BigDecimal salidas();
+}

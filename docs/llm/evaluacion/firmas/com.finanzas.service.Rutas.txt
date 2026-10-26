@@ -1,0 +1,6 @@
+Compiled from "Rutas.java"
+public final class com.finanzas.service.Rutas {
+  private com.finanzas.service.Rutas();
+  public static java.nio.file.Path reglas();
+  public static java.nio.file.Path registro();
+}

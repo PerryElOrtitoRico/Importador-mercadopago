@@ -1,0 +1,22 @@
+Compiled from "Tipo.java"
+public final class com.finanzas.model.Tipo extends java.lang.Enum<com.finanzas.model.Tipo> {
+  public static final com.finanzas.model.Tipo RENDIMIENTOS;
+  public static final com.finanzas.model.Tipo TRANSFERENCIA_RECIBIDA;
+  public static final com.finanzas.model.Tipo TRANSFERENCIA_ENVIADA;
+  public static final com.finanzas.model.Tipo PAGO_QR;
+  public static final com.finanzas.model.Tipo DEVOLUCION;
+  public static final com.finanzas.model.Tipo RETIRO;
+  public static final com.finanzas.model.Tipo RESERVA_GUARDADA;
+  public static final com.finanzas.model.Tipo RESERVA_RETIRADA;
+  public static final com.finanzas.model.Tipo OTRO;
+  private final java.lang.String prefijo;
+  private static final com.finanzas.model.Tipo[] $VALUES;
+  public static com.finanzas.model.Tipo[] values();
+  public static com.finanzas.model.Tipo valueOf(java.lang.String);
+  private com.finanzas.model.Tipo(java.lang.String);
+  public java.lang.String prefijo();
+  public boolean esReserva();
+  public static com.finanzas.model.Tipo de(java.lang.String);
+  private static com.finanzas.model.Tipo[] $values();
+  static {};
+}

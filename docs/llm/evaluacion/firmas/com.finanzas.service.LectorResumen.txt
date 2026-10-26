@@ -1,0 +1,12 @@
+Compiled from "LectorResumen.java"
+public final class com.finanzas.service.LectorResumen {
+  static final java.util.regex.Pattern FILA;
+  static final java.time.format.DateTimeFormatter FECHA;
+  private com.finanzas.service.LectorResumen();
+  public static com.finanzas.model.Resumen leer(java.util.List<java.lang.String>);
+  public static com.finanzas.model.Encabezado leerEncabezado(java.util.List<java.lang.String>);
+  static java.math.BigDecimal campo(java.util.List<java.lang.String>, java.lang.String);
+  static java.util.List<java.util.List<java.lang.String>> bloques(java.util.List<java.lang.String>);
+  public static java.util.List<com.finanzas.model.Movimiento> leerMovimientos(java.util.List<java.lang.String>);
+  static {};
+}

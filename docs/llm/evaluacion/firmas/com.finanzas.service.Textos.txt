@@ -1,0 +1,5 @@
+Compiled from "Textos.java"
+public final class com.finanzas.service.Textos {
+  private com.finanzas.service.Textos();
+  public static java.lang.String normalizar(java.lang.String);
+}

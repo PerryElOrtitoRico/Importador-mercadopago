@@ -1,0 +1,19 @@
+Compiled from "Clasificado.java"
+public final class com.finanzas.model.Clasificado extends java.lang.Record {
+  private final com.finanzas.model.Movimiento movimiento;
+  private final com.finanzas.model.Tipo tipo;
+  private final java.lang.String contraparte;
+  private final java.lang.String categoria;
+  private final boolean paraRevisar;
+  private final java.lang.String motivo;
+  public com.finanzas.model.Clasificado(com.finanzas.model.Movimiento, com.finanzas.model.Tipo, java.lang.String, java.lang.String, boolean, java.lang.String);
+  public final java.lang.String toString();
+  public final int hashCode();
+  public final boolean equals(java.lang.Object);
+  public com.finanzas.model.Movimiento movimiento();
+  public com.finanzas.model.Tipo tipo();
+  public java.lang.String contraparte();
+  public java.lang.String categoria();
+  public boolean paraRevisar();
+  public java.lang.String motivo();
+}

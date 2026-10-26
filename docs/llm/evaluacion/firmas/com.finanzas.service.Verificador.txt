@@ -1,0 +1,5 @@
+Compiled from "Verificador.java"
+public final class com.finanzas.service.Verificador {
+  private com.finanzas.service.Verificador();
+  public static java.util.List<java.lang.String> verificar(com.finanzas.model.Resumen);
+}

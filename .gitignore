@@ -1,0 +1,8 @@
+target/
+.idea/
+.vscode/
+*.iml
+# resúmenes y salidas reales: nunca en el repo
+*.pdf
+*.csv
+muestras/
