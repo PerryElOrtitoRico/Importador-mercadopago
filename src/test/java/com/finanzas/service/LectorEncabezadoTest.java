@@ -10,11 +10,14 @@ class LectorEncabezadoTest {
 
     @Test
     void encabezado() {
-        // TODO T02a
+        Encabezado e = LectorResumen.leerEncabezado(Muestra.lineas());
+        assertEquals("Ana Laura Gomez", e.titular());
+        assertEquals(new BigDecimal("2580.25"), e.saldoInicial());
+        assertEquals(new BigDecimal("-82396.18"), e.salidas());
     }
 
     @Test
     void campoQueFalta() {
-        // TODO T02a
+        assertThrows(IllegalArgumentException.class, () -> LectorResumen.campo(java.util.List.of("hola"), "Saldo final"));
     }
 }
