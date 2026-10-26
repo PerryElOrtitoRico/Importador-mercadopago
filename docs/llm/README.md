@@ -15,3 +15,4 @@ Claude (Opus) escribió la especificación (`00-especificacion.md`), los esquele
 | T03 | Gemma | 3/3 | 0 | Gemma |
 | T04a | Gemma | 3/3 | 0 | Gemma |
 | T06 | Gemma | 4/4 | 0 | Gemma |
+| T02b | qwen | 4/4 | 0 | qwen |

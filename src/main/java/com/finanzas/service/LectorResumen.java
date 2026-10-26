@@ -26,8 +26,7 @@ public final class LectorResumen {
 
     /** Encabezado y movimientos. */
     public static Resumen leer(List<String> lineas) {
-        // lo completa otra subtarea (T02b): no lo cambies
-        throw new UnsupportedOperationException("T02b");
+        return new Resumen(leerEncabezado(lineas), leerMovimientos(lineas));
     }
 
     /** Titular, período y los cuatro importes de la primera página. */
@@ -79,13 +78,43 @@ public final class LectorResumen {
 
     /** Grupos de líneas no vacías separados por una o más líneas vacías (o solo con espacios). */
     static List<List<String>> bloques(List<String> lineas) {
-        // lo completa otra subtarea (T02b): no lo cambies
-        throw new UnsupportedOperationException("T02b");
+        List<List<String>> out = new ArrayList<>();
+        List<String> actual = new ArrayList<>();
+        for (String linea : lineas) {
+            if (linea.isBlank()) {
+                if (!actual.isEmpty()) {
+                    out.add(actual);
+                    actual = new ArrayList<>();
+                }
+            } else {
+                actual.add(linea);
+            }
+        }
+        if (!actual.isEmpty()) out.add(actual);
+        return out;
     }
 
     /** Un movimiento por cada bloque que tiene una fila; los bloques sin fila (títulos, páginas) se saltean. */
     public static List<Movimiento> leerMovimientos(List<String> lineas) {
-        // lo completa otra subtarea (T02b): no lo cambies
-        throw new UnsupportedOperationException("T02b");
+        List<Movimiento> out = new ArrayList<>();
+        for (List<String> bloque : bloques(lineas)) {
+            int fila = -1;
+            for (int i = 0; i < bloque.size(); i++) {
+                if (FILA.matcher(bloque.get(i)).matches()) {
+                    if (fila >= 0) throw new IllegalStateException("Bloque con dos movimientos: " + bloque);
+                    fila = i;
+                }
+            }
+            if (fila < 0) continue;
+            Matcher m = FILA.matcher(bloque.get(fila));
+            m.matches();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < fila; i++) sb.append(bloque.get(i).trim()).append(' ');
+            sb.append(m.group(2).trim()).append(' ');
+            for (int i = fila + 1; i < bloque.size(); i++) sb.append(bloque.get(i).trim()).append(' ');
+            String descripcion = sb.toString().replaceAll("\\s+", " ").trim();
+            out.add(new Movimiento(LocalDate.parse(m.group(1), FECHA), descripcion, m.group(3), Importes.parsear(m.group(4)), Importes.parsear(m.group(5))));
+        }
+        return out;
     }
 }
