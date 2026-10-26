@@ -21,3 +21,6 @@ Una entrada por pedido: qué se pidió, qué salió, por qué y qué se cambia e
 
 ## T02b — movimientos (qwen, --metodos)
 - Intento 1: 72 s, 3291 entrada, 764 salida, `stop`. Ocultos 4/4, firmas iguales. Sin cambios.
+
+## T04b — clasificar (qwen, --metodos)
+- Intento 1: 79 s, 2317 entrada, 875 salida, `stop`. Ocultos 3/3, firmas iguales. Sin cambios.
