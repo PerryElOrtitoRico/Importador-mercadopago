@@ -10,6 +10,11 @@ class ClasificadorTest {
 
     @Test
     void clasificarMuestra() {
-        // TODO T04b
+        Clasificador c = new Clasificador(ReglasRepo.porDefecto(), Muestra.TITULAR);
+        List<Clasificado> cs = c.clasificarTodos(Muestra.resumen().movimientos());
+        assertEquals(12, cs.size());
+        assertEquals("Rendimientos", cs.get(0).categoria());
+        assertEquals("Transferencia a mi nombre", cs.get(2).motivo());
+        assertEquals("Supermercado", cs.get(3).categoria());
     }
 }

@@ -26,25 +26,43 @@ public final class Clasificador {
 
     /** La descripción sin el prefijo del tipo, sin espacios a los costados. Para OTRO, la descripción entera (trim). */
     static String contraparte(String descripcion, Tipo tipo) {
-        // TODO T04a
-        throw new UnsupportedOperationException("T04a");
+        if (tipo == Tipo.OTRO) {
+            return descripcion.trim();
+        }
+        return descripcion.substring(tipo.prefijo().length()).trim();
     }
 
     /** true si todas las palabras del titular aparecen como palabras de la descripción (normalizadas, en cualquier orden). */
     static boolean esPropia(String descripcion, String titular) {
-        // TODO T04a
-        throw new UnsupportedOperationException("T04a");
+        Set<String> palabras = new HashSet<>(Arrays.asList(Textos.normalizar(descripcion).split(" ")));
+        for (String p : Textos.normalizar(titular).split(" ")) {
+            if (!palabras.contains(p)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /** Vacío para las reservas; si no, el movimiento clasificado. */
     public Optional<Clasificado> clasificar(Movimiento m) {
-        // TODO T04b
-        throw new UnsupportedOperationException("T04b");
+        Tipo tipo = Tipo.de(m.descripcion());
+        if (tipo.esReserva()) return Optional.empty();
+        String contra = contraparte(m.descripcion(), tipo);
+        boolean transferencia = tipo == Tipo.TRANSFERENCIA_RECIBIDA || tipo == Tipo.TRANSFERENCIA_ENVIADA;
+        if (transferencia && esPropia(m.descripcion(), titular)) return Optional.of(new Clasificado(m, tipo, contra, "", true, "Transferencia a mi nombre"));
+        String desc = Textos.normalizar(m.descripcion());
+        for (Regla r : reglas) {
+            if (desc.contains(Textos.normalizar(r.contiene()))) return Optional.of(new Clasificado(m, tipo, contra, r.categoria(), false, ""));
+        }
+        return Optional.of(new Clasificado(m, tipo, contra, "", true, "Sin regla"));
     }
 
     /** Los clasificados, en el mismo orden, sin las reservas. */
     public List<Clasificado> clasificarTodos(List<Movimiento> movimientos) {
-        // TODO T04b
-        throw new UnsupportedOperationException("T04b");
+        List<Clasificado> out = new ArrayList<>();
+        for (Movimiento m : movimientos) {
+            clasificar(m).ifPresent(out::add);
+        }
+        return out;
     }
 }
