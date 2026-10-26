@@ -1,0 +1,10 @@
+Compiled from "Clasificador.java"
+public final class com.finanzas.service.Clasificador {
+  private final java.util.List<com.finanzas.model.Regla> reglas;
+  private final java.lang.String titular;
+  public com.finanzas.service.Clasificador(java.util.List<com.finanzas.model.Regla>, java.lang.String);
+  static java.lang.String contraparte(java.lang.String, com.finanzas.model.Tipo);
+  static boolean esPropia(java.lang.String, java.lang.String);
+  public java.util.Optional<com.finanzas.model.Clasificado> clasificar(com.finanzas.model.Movimiento);
+  public java.util.List<com.finanzas.model.Clasificado> clasificarTodos(java.util.List<com.finanzas.model.Movimiento>);
+}

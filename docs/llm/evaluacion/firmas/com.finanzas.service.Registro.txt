@@ -1,0 +1,9 @@
+Compiled from "Registro.java"
+public final class com.finanzas.service.Registro {
+  private final java.nio.file.Path archivo;
+  public com.finanzas.service.Registro(java.nio.file.Path);
+  public static java.lang.String clave(com.finanzas.model.Movimiento);
+  public java.util.Set<java.lang.String> leer() throws java.io.IOException;
+  public void agregar(java.util.Collection<java.lang.String>) throws java.io.IOException;
+  public java.util.List<com.finanzas.model.Clasificado> nuevos(java.util.List<com.finanzas.model.Clasificado>) throws java.io.IOException;
+}

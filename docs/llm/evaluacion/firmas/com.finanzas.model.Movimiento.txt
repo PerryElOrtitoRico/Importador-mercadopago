@@ -1,0 +1,17 @@
+Compiled from "Movimiento.java"
+public final class com.finanzas.model.Movimiento extends java.lang.Record {
+  private final java.time.LocalDate fecha;
+  private final java.lang.String descripcion;
+  private final java.lang.String idOperacion;
+  private final java.math.BigDecimal valor;
+  private final java.math.BigDecimal saldo;
+  public com.finanzas.model.Movimiento(java.time.LocalDate, java.lang.String, java.lang.String, java.math.BigDecimal, java.math.BigDecimal);
+  public final java.lang.String toString();
+  public final int hashCode();
+  public final boolean equals(java.lang.Object);
+  public java.time.LocalDate fecha();
+  public java.lang.String descripcion();
+  public java.lang.String idOperacion();
+  public java.math.BigDecimal valor();
+  public java.math.BigDecimal saldo();
+}

@@ -1,0 +1,11 @@
+Compiled from "Resumen.java"
+public final class com.finanzas.model.Resumen extends java.lang.Record {
+  private final com.finanzas.model.Encabezado encabezado;
+  private final java.util.List<com.finanzas.model.Movimiento> movimientos;
+  public com.finanzas.model.Resumen(com.finanzas.model.Encabezado, java.util.List<com.finanzas.model.Movimiento>);
+  public final java.lang.String toString();
+  public final int hashCode();
+  public final boolean equals(java.lang.Object);
+  public com.finanzas.model.Encabezado encabezado();
+  public java.util.List<com.finanzas.model.Movimiento> movimientos();
+}

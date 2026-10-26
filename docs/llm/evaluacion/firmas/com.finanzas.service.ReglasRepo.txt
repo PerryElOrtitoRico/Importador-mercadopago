@@ -1,0 +1,9 @@
+Compiled from "ReglasRepo.java"
+public final class com.finanzas.service.ReglasRepo {
+  private static final com.google.gson.Gson GSON;
+  private static final java.lang.reflect.Type LISTA;
+  private com.finanzas.service.ReglasRepo();
+  public static java.util.List<com.finanzas.model.Regla> porDefecto();
+  public static java.util.List<com.finanzas.model.Regla> cargar(java.nio.file.Path) throws java.io.IOException;
+  static {};
+}

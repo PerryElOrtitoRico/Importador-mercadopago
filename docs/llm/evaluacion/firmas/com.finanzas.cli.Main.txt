@@ -1,0 +1,8 @@
+Compiled from "Main.java"
+public final class com.finanzas.cli.Main {
+  static final java.lang.String USO;
+  private com.finanzas.cli.Main();
+  public static void main(java.lang.String[]);
+  static int ejecutar(java.lang.String[], java.nio.file.Path, com.finanzas.service.Registro, java.io.PrintStream, java.io.PrintStream);
+  static java.lang.String informe(com.finanzas.service.Importador$Resultado, boolean);
+}
