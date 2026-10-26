@@ -45,13 +45,24 @@ public final class Clasificador {
 
     /** Vacío para las reservas; si no, el movimiento clasificado. */
     public Optional<Clasificado> clasificar(Movimiento m) {
-        // lo completa otra subtarea (T04b): no lo cambies
-        throw new UnsupportedOperationException("T04b");
+        Tipo tipo = Tipo.de(m.descripcion());
+        if (tipo.esReserva()) return Optional.empty();
+        String contra = contraparte(m.descripcion(), tipo);
+        boolean transferencia = tipo == Tipo.TRANSFERENCIA_RECIBIDA || tipo == Tipo.TRANSFERENCIA_ENVIADA;
+        if (transferencia && esPropia(m.descripcion(), titular)) return Optional.of(new Clasificado(m, tipo, contra, "", true, "Transferencia a mi nombre"));
+        String desc = Textos.normalizar(m.descripcion());
+        for (Regla r : reglas) {
+            if (desc.contains(Textos.normalizar(r.contiene()))) return Optional.of(new Clasificado(m, tipo, contra, r.categoria(), false, ""));
+        }
+        return Optional.of(new Clasificado(m, tipo, contra, "", true, "Sin regla"));
     }
 
     /** Los clasificados, en el mismo orden, sin las reservas. */
     public List<Clasificado> clasificarTodos(List<Movimiento> movimientos) {
-        // lo completa otra subtarea (T04b): no lo cambies
-        throw new UnsupportedOperationException("T04b");
+        List<Clasificado> out = new ArrayList<>();
+        for (Movimiento m : movimientos) {
+            clasificar(m).ifPresent(out::add);
+        }
+        return out;
     }
 }
