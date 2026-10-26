@@ -44,7 +44,19 @@ public final class ReglasRepo {
      * Si existe pero no se puede leer, IllegalStateException (no se pisa: son las reglas del usuario).
      */
     public static List<Regla> cargar(Path archivo) throws IOException {
-        // TODO T07
-        throw new UnsupportedOperationException("T07");
+        if (!Files.exists(archivo)) {
+            if (archivo.getParent() != null) Files.createDirectories(archivo.getParent());
+            List<Regla> porDefecto = porDefecto();
+            Files.writeString(archivo, GSON.toJson(porDefecto, LISTA), StandardCharsets.UTF_8);
+            return porDefecto;
+        }
+        String json = Files.readString(archivo, StandardCharsets.UTF_8);
+        try {
+            List<Regla> reglas = GSON.fromJson(json, LISTA);
+            if (reglas == null) throw new JsonParseException("archivo vacío");
+            return List.copyOf(reglas);
+        } catch (JsonParseException e) {
+            throw new IllegalStateException("No se pudo leer " + archivo + ": " + e.getMessage(), e);
+        }
     }
 }
