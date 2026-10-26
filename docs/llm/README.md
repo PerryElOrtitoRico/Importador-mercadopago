@@ -10,3 +10,14 @@ Claude (Opus) escribió la especificación (`00-especificacion.md`), los esquele
 ## Planilla
 | Subtarea | Modelo | Ocultos | Correcciones | Quién |
 |---|---|---|---|---|
+| T01 | Gemma | 3/3 | 0 | Gemma |
+| T02a | Gemma | 2/2 | 0 (1 línea del esqueleto restaurada a mano) | Gemma |
+| T03 | Gemma | 3/3 | 0 | Gemma |
+| T04a | Gemma | 3/3 | 0 | Gemma |
+| T06 | Gemma | 4/4 | 0 | Gemma |
+| T02b | qwen | 4/4 | 0 | qwen |
+| T04b | qwen | 3/3 | 0 | qwen |
+| T05 | qwen | 4/4 | 0 | qwen |
+| T07 | qwen | 3/3 | 0 (2 arreglos a su test propio por el orquestador) | qwen |
+| T08a | qwen | 4/4 | 0 (campo @TempDir y throws del test agregados por el orquestador) | qwen |
+| T08b | Gemma | 5/5 | 0 | Gemma |

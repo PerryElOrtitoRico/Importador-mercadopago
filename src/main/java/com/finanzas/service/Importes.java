@@ -11,13 +11,15 @@ public final class Importes {
 
     /** "$ -1.234,56", "-1.234,56" o "$ 0,01" → BigDecimal con escala 2. Texto vacío o null → IllegalArgumentException. */
     public static BigDecimal parsear(String texto) {
-        // TODO T01
-        throw new UnsupportedOperationException("T01");
+        if (texto == null || texto.isBlank()) {
+            throw new IllegalArgumentException("Importe vacío");
+        }
+        String s = texto.replace("$", "").replace(" ", "").replace(".", "").replace(",", ".");
+        return new BigDecimal(s).setScale(2, RoundingMode.HALF_UP);
     }
 
     /** BigDecimal → texto con punto decimal y dos decimales, sin separador de miles: -1234.56, 0.50. */
     public static String aCsv(BigDecimal valor) {
-        // TODO T01
-        throw new UnsupportedOperationException("T01");
+        return valor.setScale(2, RoundingMode.HALF_UP).toPlainString();
     }
 }

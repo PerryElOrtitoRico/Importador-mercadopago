@@ -26,31 +26,95 @@ public final class LectorResumen {
 
     /** Encabezado y movimientos. */
     public static Resumen leer(List<String> lineas) {
-        // TODO T02b
-        throw new UnsupportedOperationException("T02b");
+        return new Resumen(leerEncabezado(lineas), leerMovimientos(lineas));
     }
 
     /** Titular, período y los cuatro importes de la primera página. */
     public static Encabezado leerEncabezado(List<String> lineas) {
-        // TODO T02a
-        throw new UnsupportedOperationException("T02a");
+        // 1. Titular
+        String titular = "";
+        for (int i = 0; i < lineas.size(); i++) {
+            if (lineas.get(i).contains("RESUMEN DE CUENTA")) {
+                for (int j = i + 1; j < lineas.size(); j++) {
+                    if (!lineas.get(j).isBlank()) {
+                        titular = lineas.get(j).trim();
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+
+        // 2. Período
+        String periodo = "";
+        for (String linea : lineas) {
+            int k = linea.indexOf("Periodo:");
+            if (k >= 0) {
+                periodo = linea.substring(k + "Periodo:".length()).trim();
+                break;
+            }
+        }
+
+        // 3. Importes
+        BigDecimal saldoInicial = campo(lineas, "Saldo inicial");
+        BigDecimal saldoFinal = campo(lineas, "Saldo final");
+        BigDecimal entradas = campo(lineas, "Entradas");
+        BigDecimal salidas = campo(lineas, "Salidas");
+
+        return new Encabezado(titular, periodo, saldoInicial, saldoFinal, entradas, salidas);
     }
 
     /** El importe que sigue a "nombre: $" en la primera línea que lo tenga. Si ninguna lo tiene → IllegalArgumentException. */
     static BigDecimal campo(List<String> lineas, String nombre) {
-        // TODO T02a
-        throw new UnsupportedOperationException("T02a");
+        Pattern p = Pattern.compile(Pattern.quote(nombre) + ":\\s*\\$\\s*(-?[\\d.]+,\\d{2})");
+        for (String linea : lineas) {
+            Matcher m = p.matcher(linea);
+            if (m.find()) {
+                return Importes.parsear(m.group(1));
+            }
+        }
+        throw new IllegalArgumentException("Falta " + nombre + " en el resumen");
     }
 
     /** Grupos de líneas no vacías separados por una o más líneas vacías (o solo con espacios). */
     static List<List<String>> bloques(List<String> lineas) {
-        // TODO T02b
-        throw new UnsupportedOperationException("T02b");
+        List<List<String>> out = new ArrayList<>();
+        List<String> actual = new ArrayList<>();
+        for (String linea : lineas) {
+            if (linea.isBlank()) {
+                if (!actual.isEmpty()) {
+                    out.add(actual);
+                    actual = new ArrayList<>();
+                }
+            } else {
+                actual.add(linea);
+            }
+        }
+        if (!actual.isEmpty()) out.add(actual);
+        return out;
     }
 
     /** Un movimiento por cada bloque que tiene una fila; los bloques sin fila (títulos, páginas) se saltean. */
     public static List<Movimiento> leerMovimientos(List<String> lineas) {
-        // TODO T02b
-        throw new UnsupportedOperationException("T02b");
+        List<Movimiento> out = new ArrayList<>();
+        for (List<String> bloque : bloques(lineas)) {
+            int fila = -1;
+            for (int i = 0; i < bloque.size(); i++) {
+                if (FILA.matcher(bloque.get(i)).matches()) {
+                    if (fila >= 0) throw new IllegalStateException("Bloque con dos movimientos: " + bloque);
+                    fila = i;
+                }
+            }
+            if (fila < 0) continue;
+            Matcher m = FILA.matcher(bloque.get(fila));
+            m.matches();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < fila; i++) sb.append(bloque.get(i).trim()).append(' ');
+            sb.append(m.group(2).trim()).append(' ');
+            for (int i = fila + 1; i < bloque.size(); i++) sb.append(bloque.get(i).trim()).append(' ');
+            String descripcion = sb.toString().replaceAll("\\s+", " ").trim();
+            out.add(new Movimiento(LocalDate.parse(m.group(1), FECHA), descripcion, m.group(3), Importes.parsear(m.group(4)), Importes.parsear(m.group(5))));
+        }
+        return out;
     }
 }
