@@ -18,3 +18,4 @@ Claude (Opus) escribió la especificación (`00-especificacion.md`), los esquele
 | T02b | qwen | 4/4 | 0 | qwen |
 | T04b | qwen | 3/3 | 0 | qwen |
 | T05 | qwen | 4/4 | 0 | qwen |
+| T07 | qwen | 3/3 | 0 (2 arreglos a su test propio por el orquestador) | qwen |

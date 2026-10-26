@@ -27,3 +27,7 @@ Una entrada por pedido: qué se pidió, qué salió, por qué y qué se cambia e
 
 ## T05 — registro (qwen)
 - Intento 1: 95 s, 2211 entrada, 1008 salida, `stop`. Ocultos 4/4, firmas iguales. Sin cambios.
+
+## T07 — reglas y pdftotext (qwen, --metodos)
+- Intento 1: ~100 s, `stop`. Ocultos 3/3, código de producción bien al primer intento. Sus tests propios fallaban de dos maneras: (1) el injerto conserva la declaración del esqueleto, que no tenía `throws IOException`, y qwen no la agregó (el error de compilación venía del esqueleto de test, no del modelo); (2) su limpieza `Files.walk(dir).sorted()` borra el padre antes que los hijos (`DirectoryNotEmptyException`) y no usó `@TempDir` como pedía la tarea. Lo arregló el orquestador (`throws IOException` en los dos tests y `Comparator.reverseOrder()`), sin segundo pedido.
+- Cambiar: el esqueleto de tests que usan archivos tiene que declarar `throws IOException`; pedir `@TempDir` en la tarea con el campo ya escrito en el esqueleto.
