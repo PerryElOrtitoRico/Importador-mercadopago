@@ -18,3 +18,6 @@ Una entrada por pedido: qué se pidió, qué salió, por qué y qué se cambia e
 
 ## T06 — exportador CSV (Gemma)
 - Intento 1: 54 s, 2139 entrada, 878 salida, `stop`. Ocultos 4/4, firmas iguales. Sin cambios.
+
+## T02b — movimientos (qwen, --metodos)
+- Intento 1: 72 s, 3291 entrada, 764 salida, `stop`. Ocultos 4/4, firmas iguales. Sin cambios.
