@@ -35,3 +35,6 @@ Una entrada por pedido: qué se pidió, qué salió, por qué y qué se cambia e
 ## T08a — importar (qwen, --metodos)
 - Intento 1: 108 s, 2958 entrada, 1197 salida, `stop`. Ocultos 4/4; producción bien al primer pedido. El test propio no compilaba: el esqueleto de `ImportadorTest` no tenía el campo `@TempDir Path dir` ni `throws IOException` y el injerto solo trae métodos. Lo agregó el orquestador (2 líneas de esqueleto de test).
 - Mismo origen que T07: los esqueletos de tests con archivos temporales deberían traer el campo `@TempDir` y el `throws` ya escritos. Cambiar en la tarea/esqueleto (decisión de Opus), no en el pedido.
+
+## T08b — main (Gemma)
+- Intento 1: 120 s, 3123 entrada, 1694 salida, `stop`. Ocultos 5/5, propios y firmas bien. Sin cambios.

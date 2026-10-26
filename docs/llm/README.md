@@ -20,3 +20,4 @@ Claude (Opus) escribió la especificación (`00-especificacion.md`), los esquele
 | T05 | qwen | 4/4 | 0 | qwen |
 | T07 | qwen | 3/3 | 0 (2 arreglos a su test propio por el orquestador) | qwen |
 | T08a | qwen | 4/4 | 0 (campo @TempDir y throws del test agregados por el orquestador) | qwen |
+| T08b | Gemma | 5/5 | 0 | Gemma |
