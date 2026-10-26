@@ -31,3 +31,7 @@ Una entrada por pedido: qué se pidió, qué salió, por qué y qué se cambia e
 ## T07 — reglas y pdftotext (qwen, --metodos)
 - Intento 1: ~100 s, `stop`. Ocultos 3/3, código de producción bien al primer intento. Sus tests propios fallaban de dos maneras: (1) el injerto conserva la declaración del esqueleto, que no tenía `throws IOException`, y qwen no la agregó (el error de compilación venía del esqueleto de test, no del modelo); (2) su limpieza `Files.walk(dir).sorted()` borra el padre antes que los hijos (`DirectoryNotEmptyException`) y no usó `@TempDir` como pedía la tarea. Lo arregló el orquestador (`throws IOException` en los dos tests y `Comparator.reverseOrder()`), sin segundo pedido.
 - Cambiar: el esqueleto de tests que usan archivos tiene que declarar `throws IOException`; pedir `@TempDir` en la tarea con el campo ya escrito en el esqueleto.
+
+## T08a — importar (qwen, --metodos)
+- Intento 1: 108 s, 2958 entrada, 1197 salida, `stop`. Ocultos 4/4; producción bien al primer pedido. El test propio no compilaba: el esqueleto de `ImportadorTest` no tenía el campo `@TempDir Path dir` ni `throws IOException` y el injerto solo trae métodos. Lo agregó el orquestador (2 líneas de esqueleto de test).
+- Mismo origen que T07: los esqueletos de tests con archivos temporales deberían traer el campo `@TempDir` y el `throws` ya escritos. Cambiar en la tarea/esqueleto (decisión de Opus), no en el pedido.
