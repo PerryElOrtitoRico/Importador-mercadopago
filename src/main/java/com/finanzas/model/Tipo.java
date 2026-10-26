@@ -29,7 +29,11 @@ public enum Tipo {
 
     /** El primer tipo (en el orden de arriba, sin OTRO) cuyo prefijo es el comienzo de la descripción; si ninguno, OTRO. */
     public static Tipo de(String descripcion) {
-        // TODO T04a
-        throw new UnsupportedOperationException("T04a");
+        for (Tipo t : values()) {
+            if (t != OTRO && descripcion.startsWith(t.prefijo())) {
+                return t;
+            }
+        }
+        return OTRO;
     }
 }

@@ -12,3 +12,6 @@ Una entrada por pedido: qué se pidió, qué salió, por qué y qué se cambia e
 
 ## T03 — verificador (Gemma)
 - Intento 1: 53 s, 2106 entrada, 918 salida, `stop`. Ocultos 3/3, propios y firmas bien. Sin cambios.
+
+## T04a — tipo y contraparte (Gemma)
+- Intento 1: 75 s, 2628 entrada, 1223 salida, `stop`. Ocultos 3/3, firmas iguales. Sin cambios.

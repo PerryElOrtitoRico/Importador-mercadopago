@@ -9,16 +9,20 @@ class TipoContraparteTest {
 
     @Test
     void tipos() {
-        // TODO T04a
+        assertEquals(Tipo.RENDIMIENTOS, Tipo.de("Rendimientos"));
+        assertEquals(Tipo.RESERVA_RETIRADA, Tipo.de("Dinero retirado HOGAR"));
+        assertEquals(Tipo.OTRO, Tipo.de("Compra rara"));
     }
 
     @Test
     void contraparte() {
-        // TODO T04a
+        assertEquals("Carrefour", Clasificador.contraparte("Pago con QR Carrefour", Tipo.PAGO_QR));
+        assertEquals("", Clasificador.contraparte("Transferencia enviada", Tipo.TRANSFERENCIA_ENVIADA));
     }
 
     @Test
     void propia() {
-        // TODO T04a
+        assertTrue(Clasificador.esPropia("Transferencia recibida GOMEZ ANA LAURA", "Ana Laura Gomez"));
+        assertFalse(Clasificador.esPropia("Transferencia enviada Ana Laura Perez", "Ana Laura Gomez"));
     }
 }
