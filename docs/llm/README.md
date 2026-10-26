@@ -10,3 +10,4 @@ Claude (Opus) escribió la especificación (`00-especificacion.md`), los esquele
 ## Planilla
 | Subtarea | Modelo | Ocultos | Correcciones | Quién |
 |---|---|---|---|---|
+| T01 | Gemma | 3/3 | 0 | Gemma |
