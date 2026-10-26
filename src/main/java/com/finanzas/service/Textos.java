@@ -10,7 +10,10 @@ public final class Textos {
 
     /** "  Verdulería   Doña " → "verduleria dona". null → "". */
     public static String normalizar(String texto) {
-        // TODO T01
-        throw new UnsupportedOperationException("T01");
+        if (texto == null) {
+            return "";
+        }
+        String sinTildes = Normalizer.normalize(texto, Normalizer.Form.NFD).replaceAll("\\p{M}", "");
+        return sinTildes.toLowerCase().replaceAll("\\s+", " ").trim();
     }
 }
